@@ -1,0 +1,30 @@
+{
+  "name": "api-restful-nodejs",
+  "version": "1.0.0",
+  "description": "Proyecto Api restful del curso de nodejs y angular",
+  "main": "index.js",
+  "scripts": {
+    "start": "env-cmd -f ./.env nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ing. Efren Arana",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.7-alpha.3",
+    "formidable": "^1.2.2",
+    "jsonwebtoken": "^8.5.1",
+    "mogobd": "0.0.1-security",
+    "moment": "^2.26.0",
+    "mongoose": "^5.9.18",
+    "validator": "^13.0.0"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "nodemon": "^2.0.4"
+  }
+}
