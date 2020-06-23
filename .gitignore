@@ -1,7 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-/uploads/album/*
-/uploads/users/photo-profile/*
+./uploads/album/.*
+./uploads/users/photo-profile/.*
 # compiled output
 
 /dist

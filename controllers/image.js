@@ -60,7 +60,7 @@ async function uploadFile(req,res){
             });
             
         }else{
-            res.status(200).send({code:400,message:'Extencion del archivo no valida!!'});
+            res.status(400).send({code:400,message:'Extencion del archivo no valida!!'});
         }
         
     }else{
