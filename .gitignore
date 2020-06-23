@@ -1,13 +1,14 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-/uploads/album/*.gif
-/uploads/album/*.jpg
-/uploads/album/*.png
-/uploads/album/*.jpeg
-/uploads/users/photo-profile/*.gif
-/uploads/users/photo-profile/*.jpg
-/uploads/users/photo-profile/*.png
-/uploads/users/photo-profile/*.jpeg
+/uploads
+
+#/uploads/album/*.jpg
+#/uploads/album/*.png
+#/uploads/album/*.jpeg
+#/uploads/users/photo-profile/*.gif
+#/uploads/users/photo-profile/*.jpg
+#/uploads/users/photo-profile/*.png
+#/uploads/users/photo-profile/*.jpeg
 # compiled output
 
 /dist
