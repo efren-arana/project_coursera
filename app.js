@@ -13,6 +13,7 @@ var bodyParser = require('body-parser');
 var userRouter = require('./routes/user');
 var favRouter = require('./routes/favorito'); 
 var albumRouter = require('./routes/album');
+var imageRouter = require('./routes/image');
 //body-parse: recibe los datos  que llegan como parametros a traves del metodo post
 //nos permite capturalos los convierte en objetos js de forma que se puedan procesar
 //se ejecuta este middleware antes que se realice la peticion completa
@@ -32,11 +33,13 @@ app.use((req,res,next)=>{
     next();//se lanza la funcion next para salir  del Middleware
 });
 
+//Middleware
 app.use(fileUpload());
 
 //middleware antes de recibir la peticion http se ejecuta este metodo
 app.use('/api',favRouter); //se usa dentro de express para cargar todaas las rutas
 app.use('/api',userRouter);
 app.use('/api',albumRouter);
+app.use('/api',imageRouter);
 //cuando queremos cargar un fichero como modulo se tiene que exportar
 module.exports = app;

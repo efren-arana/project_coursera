@@ -61,6 +61,11 @@ async function updateUser(req,res){
         }
     });
 }
+/**
+ * Cambiar el tipo de busqueda que se realiza en la imagen
+ * @param {*} req 
+ * @param {*} res 
+ */
 function getImageFile(req, res){
     var imageFile = req.params.imageFile;
     console.log('Image File: '+imageFile);
@@ -85,23 +90,23 @@ async function uploadFile(req,res){
         
         var extSplit = file.name.split('.');
         var fileExt = extSplit[1];
-
+        let md5 = file.md5+'.'+fileExt;
 
         if(fileExt == 'png' || fileExt == 'jpg' || fileExt == 'gif'){
-            User.findByIdAndUpdate(userId,{image:file.name},{new: true},(err,userUpdated)=>{
+            User.findByIdAndUpdate(userId,{image: md5},{new: true},(err,userUpdated)=>{
                 if(err){
                     //status(500) error en el servidor
-                    res.status(500).send({message:'Error al cargar Imagen el usuario!!'});
+                    res.status(500).send({code:500,message:'Error al cargar Imagen el usuario!!'});
                 }else{
                     if(!userUpdated){
-                        res.status(404).send({message:'NO se actualizo la imagen de usuario!!'});
+                        res.status(404).send({code:500,message:'NO se actualizo la imagen de usuario!!'});
                     }else{
-                        file.mv('./uploads/users/img/'+file.name,(err)=>{
+                        file.mv('./uploads/users/photo-profile/'+md5,(err)=>{
                             if(err)
                                 throw err;
                               
                         });
-                        res.status(200).send(userUpdated);
+                        res.status(200).send({code:0,message:'OK',user:userUpdated});
                     }
                 }
             });

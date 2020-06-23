@@ -13,6 +13,8 @@ router.get('/users/me',auth, async(req, res) => {
 
 //falta enviar middelware de autenticacion
 router.get('/users/getImage/:imageFile',userController.getImageFile)
+
+//cargo un archivo al servidor
 router.post('/users/uploadFile/:id',userController.uploadFile)
 
 

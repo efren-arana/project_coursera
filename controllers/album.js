@@ -82,7 +82,9 @@ function deleteAlbum(req,res){
     Album.findByIdAndRemove(albumId,(err,albumDeleted)=>{
         if (err){
             //status(500) error en el servidor
-            res.status(404).send({code:404,message:'Error  al eliminar el album!!'});
+            res.status(500).send({code:500,message:'Error  al eliminar el album!!'});
+        }else if(!albumDeleted){
+            res.status(404).send({code:404,message:'Error en la peticion para eliminar el album!!'});
         }else{
             res.status(200).send({code:0,message:'OK',album:albumDeleted});
         }

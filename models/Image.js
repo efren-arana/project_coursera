@@ -14,7 +14,7 @@ var ImageSchema = Schema({
     },
     picture:{
         type: String,
-        required: true,
+        required: false,
         trim: true
     },
     album:{
@@ -27,4 +27,4 @@ var ImageSchema = Schema({
 /**Defines a model or retrieves it. Models defined on the mongoose instance 
  * are available to all connection created by the same mongoose instance. 
 **/
-module.exports =  mongoose.model('Favorito',ImageSchema);
+module.exports =  mongoose.model('Image',ImageSchema);
