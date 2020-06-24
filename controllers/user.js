@@ -70,7 +70,7 @@ function getImageFile(req, res){
     var imageFile = req.params.imageFile;
     console.log('Image File: '+imageFile);
 
-    var path_image = './uploads/users/img/'+imageFile;
+    var path_image = './uploads/users/photo-profile/'+imageFile;
     console.log('Ruta: '+path_image);
 
     fs.exists(path_image,(exists)=>{
