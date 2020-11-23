@@ -10,7 +10,8 @@
 /uploads/users/photo-profile/*.jpeg
  
 # desarrollo
- ./.env
+./.env
+./environment
  
 #compiled output
 
