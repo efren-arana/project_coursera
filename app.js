@@ -28,12 +28,14 @@ app.use((req,res,next)=>{
     res.header('Access-Control-Allow-Origin','*');//permite que se puedan realizar peticiones de cualquier dominio
     res.header('Access-Control-Allow-Headers','Authorization,X-API-KEY,Origin,X-Requested-With,Content-Type,Accept,Access-Control-Request-Method');
     //metodos http que pueden llegar
+    res.setHeader('Content-Type','application/json');
+
     res.header('Access-Control-Allow-Methods','GET,POST,OPTIONS,PUT,DELETE');
     res.header('Allow','GET,POST,OPTIONS,PUT,DELETE');
     next();//se lanza la funcion next para salir  del Middleware
 });
 
-//Middleware
+//Middleware para poder cargar archivos en el servidor
 app.use(fileUpload());
 
 //middleware antes de recibir la peticion http se ejecuta este metodo

@@ -2,10 +2,11 @@
 //instruccion para usar nuevas caracteristicas que acepten los navegadores ES6
 'use strict'
 var MongoClient  = require('mongoose');
+const env = require('./environment');
 var app = require('./app'); //configuracion de express y de las rutas
 //se puedo configurar el puerto en una variable de entorno del servidor
-var port = process.env.PORT || 3678;
-var url = process.env.MONGODB_URL || 'mongodb+srv://dbProjectEfren:12345@cluster0-cqwe4.mongodb.net/user-registration-db';
+var port = env.environment.port;
+var url = env.environment.url;
 MongoClient.connect(url, {useNewUrlParser: true,
                           useCreateIndex: true,
                           useUnifiedTopology: true,

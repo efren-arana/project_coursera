@@ -9,6 +9,8 @@
 /uploads/users/photo-profile/*.png
 /uploads/users/photo-profile/*.jpeg
  
+# desarrollo
+ ./.env
  
 #compiled output
 

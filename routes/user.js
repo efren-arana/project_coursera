@@ -5,6 +5,7 @@ const router = express.Router()
 
 router.post('/users/register', userController.saveUser)
 router.post('/users/login', userController.loginUser)
+
 //obtiene el profile del usuario
 router.get('/users/me',auth, async(req, res) => {
     // View logged in user profile

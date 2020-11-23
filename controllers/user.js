@@ -73,6 +73,8 @@ function getImageFile(req, res){
     var path_image = './uploads/users/photo-profile/'+imageFile;
     console.log('Ruta: '+path_image);
 
+    //fs.createReadStream(path_image).pipe(res);
+
     fs.exists(path_image,(exists)=>{
             if(exists){
                 res.sendFile(path.resolve(path_image));
@@ -102,9 +104,9 @@ async function uploadFile(req,res){
                         res.status(404).send({code:500,message:'NO se actualizo la imagen de usuario!!'});
                     }else{
                         file.mv('./uploads/users/photo-profile/'+md5,(err)=>{
-                            if(err)
-                                throw err;
-                              
+                            if(err){
+                                res.status(500).send({code:500,message:'Error al cargar Imagen en la ruta del servidor!!'});
+                            }
                         });
                         res.status(200).send({code:0,message:'OK',user:userUpdated});
                     }

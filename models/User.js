@@ -6,7 +6,7 @@ const validator = require('validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const moment = require('moment');
-
+const env = require('../environment');
 //esquema del tipo de coleccion
 //nos permite definir objetos que nos permite representar a cada uno de los documento de la db
 const userSchema = mongoose.Schema({
@@ -74,7 +74,7 @@ userSchema.pre('save', async function (next) {
 userSchema.methods.generateAuthToken = async function() {
     // Generate an auth token for the user
     const user = this
-    const jwt_key = process.env.JWT_KEY || 'WinterIsComingGOT2019'
+    const jwt_key = env.environment.JWT_KEY;
     const payload = {_id: user._id,iat:moment().unix(),exp:moment().add(60,'minutes').unix()}
     console.log(payload);
     const token = jwt.sign(payload, jwt_key) //metodo para generar el token
